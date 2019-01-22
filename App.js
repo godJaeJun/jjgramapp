@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/es/integration/react";
 import configureStore from "./redux/configureStore";
 const { persistor, store } = configureStore();
+import AppContainer from "./components/AppContainer";
 //PersistGate는 디스크에서 리덕스 스토어를 불러오기전까지는 앱을 보여주지 않는다.
 
 class App extends React.Component {
@@ -28,9 +29,7 @@ class App extends React.Component {
       //PersistGate는 중요하다 다 불러와야지만 안에있는 내용을 보여준다.
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-          </View>
+          <AppContainer/>
         </PersistGate>
       </Provider>
     );
@@ -58,14 +57,5 @@ class App extends React.Component {
     });
   };
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
 
 export default App;
