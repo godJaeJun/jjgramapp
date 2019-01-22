@@ -2,6 +2,11 @@ import React from "react";
 import { AppLoading, Asset, Font } from "expo";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/es/integration/react";
+import configureStore from "./redux/configureStore";
+const { persistor, store } = configureStore();
+//PersistGate는 디스크에서 리덕스 스토어를 불러오기전까지는 앱을 보여주지 않는다.
 
 class App extends React.Component {
   state = {
@@ -20,9 +25,14 @@ class App extends React.Component {
       );
     }
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      //PersistGate는 중요하다 다 불러와야지만 안에있는 내용을 보여준다.
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <View style={styles.container}>
+            <Text>Open up App.js to start working on your app!</Text>
+          </View>
+        </PersistGate>
+      </Provider>
     );
   }
   _loadAssetsAsync = async () => {
