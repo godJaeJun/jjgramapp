@@ -7,8 +7,8 @@ import { PersistGate } from "redux-persist/es/integration/react";
 import configureStore from "./redux/configureStore";
 const { persistor, store } = configureStore();
 import AppContainer from "./components/AppContainer";
-//PersistGate는 디스크에서 리덕스 스토어를 불러오기전까지는 앱을 보여주지 않는다.
 
+//PersistGate는 디스크에서 리덕스 스토어를 불러오기전까지는 앱을 보여주지 않는다.
 class App extends React.Component {
   state = {
     isLoadingComplete: false  //로딩
