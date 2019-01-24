@@ -5,20 +5,36 @@ import NavButton from "../components/NavButton";
 
 const sharedRoutes={
     Likes: {
-        screen: LikeScreen
+        screen: LikeScreen,
+        navigationOptions: {
+            headerLeft: props => (
+                <NavButton
+                  iconName={"ios-arrow-back"}
+                  {...props}
+                />
+              ),
+            headerStyle:{
+                backgroundColor:"#FBFBFB"
+            }
+        }
     },
     Comments: {
-        screen: CommentsScreen
+        screen: CommentsScreen,
+        navigationOptions: {
+            headerLeft: props => (
+                <NavButton
+                  iconName={"ios-arrow-back"}
+                  {...props}
+                />
+              ),
+            headerStyle:{
+                backgroundColor:"#FBFBFB"
+            }
+        }
     }
 };
 const sharedOptions={
     navigationOptions: {
-        headerLeft: props => (
-            <NavButton
-              iconName={"ios-arrow-back"}
-              {...props}
-            />
-          ),
         headerStyle:{
             backgroundColor:"#FBFBFB"
         }
