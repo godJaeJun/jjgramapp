@@ -74,7 +74,6 @@ const TabsNavigation = createBottomTabNavigator(
             }
         },
     {
-        tabBarPosition: "bottom",
         tabBarOptions:{
             showLabel:false, //기본라벨 제거
             style:{

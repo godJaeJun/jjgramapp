@@ -10,7 +10,7 @@ const ProfileRoute = createStackNavigator(
         ...sharedRoutes //unpack한다. 안에 내용만 들어가게
     },
     {
-        ...sharedOptions
+        
     }
 )
 
