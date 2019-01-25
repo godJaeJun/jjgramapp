@@ -18,7 +18,6 @@ class NavButton extends React.Component{
 NavButton.propTypes = {
   onPress: PropTypes.func.isRequired,
   iconName: PropTypes.string.isRequired
-
 }
 
 const styles = StyleSheet.create({

@@ -5,7 +5,10 @@ import sharedRoutes, { sharedOptions } from "./sharedRoutes";
 const ProfileRoute = createStackNavigator(
     {
         Profile: {
-            screen: ProfileScreen
+            screen: ProfileScreen,
+            navigationOptions: ({screenProps})=>({
+                headerTitle: screenProps.username
+            })
         },
         ...sharedRoutes //unpack한다. 안에 내용만 들어가게
     },
