@@ -29,9 +29,9 @@ function setSearch(search){
 function getFeed(){
     return (dispatch,getState)=>{
         const {user : {token} } = getState();
-        fetch(`${API_URL}/images`,{
+        fetch(`${API_URL}/images/`,{
             headers:{
-                Authorizations: `JWT ${token}`
+                Authorization: `JWT ${token}`
             }
         })
         .then(response=>{
@@ -50,7 +50,7 @@ function getSearch(){
         const {user : {token} } = getState();
         fetch(`${API_URL}/images/search/`,{
             headers:{
-                Authorizations: `JWT ${token}`
+                Authorization: `JWT ${token}`
             }
         })
         .then(response=>{

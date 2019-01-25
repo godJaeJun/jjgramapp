@@ -16,10 +16,11 @@ const mapDispatchToProps=(dispatch,ownProps)=>{
         initApp: () => {
             dispatch(photoActions.getFeed());
             dispatch(photoActions.getSearch());
-            //getNotifications
+            dispatch(userActions.getNotifications());
+            dispatch(userActions.getOwnProfile());
             //getProfile
         }
     }
 }
 
-export default connect(mapStateToProps)(AppContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(AppContainer);
