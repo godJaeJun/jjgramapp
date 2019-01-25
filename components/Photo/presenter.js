@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, TouchableOpacity, Image,StyleSheet,Dimensions} from "react-native";
 import FadeIn from "react-native-fade-in-image";
+import PhotoActions from "../PhotoActions";
+import { withNavigation } from "react-navigation";
 
 const {width,height} = Dimensions.get("window");
 
@@ -29,13 +31,14 @@ const Photo = props => (
           />
     </FadeIn>
     <View style={styles.photoMeta}>
+    <PhotoActions isLiked={props.isLiked} likeCount={props.likeCount} handlePress={props.handlePress}/>
         <View style={styles.comment}>
             <Text style={styles.author}>{props.creator.username}{" "}
             <Text style={styles.message}>{props.caption}</Text>
             </Text>
         </View>
         {props.comments.length>0 &&(
-            <TouchableOpacity>
+            <TouchableOpacity onPressOut={()=>props.navigation.navigate("Comments")}>
               <View style={styles.commentsLink}>
               {props.comments.length ===1 ? (
                 <Text style={styles.linkText}>View 1 comment</Text>
@@ -101,7 +104,7 @@ const styles=StyleSheet.create({
   dateText:{
     fontSize:12,
     color:"#999",
-    marginTop:5
+    marginTop:10
   }
 });
 Photo.propTypes = {
@@ -126,7 +129,8 @@ Photo.propTypes = {
   ).isRequired,
   natural_time: PropTypes.string.isRequired,
   is_liked: PropTypes.bool.isRequired,
-  is_vertical: PropTypes.bool.isRequired
+  is_vertical: PropTypes.bool.isRequired,
+  handlePress:PropTypes.func.isRequired
 };
 
-export default Photo;
+export default withNavigation(Photo);

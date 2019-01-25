@@ -7,6 +7,7 @@ const sharedRoutes={
     Likes: {
         screen: LikeScreen,
         navigationOptions: {
+            headerTitle:"Likes",
             headerLeft: props => (
                 <NavButton
                   iconName={"ios-arrow-back"}
@@ -21,6 +22,7 @@ const sharedRoutes={
     Comments: {
         screen: CommentsScreen,
         navigationOptions: {
+            headerTitle:"Comments",
             headerLeft: props => (
                 <NavButton
                   iconName={"ios-arrow-back"}
