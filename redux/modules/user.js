@@ -114,23 +114,23 @@ function getNotifications(){
   }
 }
 
-function getOwnProfile(){
-  return (dispatch,getState)=>{
-      const {user : {token,profile: { username }} } = getState();
-      fetch(`${API_URL}/users/${username}/`,{
-          headers:{
-              Authorization: `JWT ${token}`
-          }
+function getOwnProfile() {
+  return (dispatch, getState) => {
+    const { user: { token, profile: { username } } } = getState();
+    fetch(`${API_URL}/users/${username}/`, {
+      headers: {
+        Authorization: `JWT ${token}`
+      }
+    })
+      .then(response => {
+        if (response.status === 401) {
+          dispatch(logOut());
+        } else {
+          return response.json();
+        }
       })
-      .then(response=>{
-          if(response.status===401){
-              dispatch(logOut());
-          }else{
-              return response.json();
-          }
-      })
-      .then(json=>dispatch(setUser(json)));
-  }
+      .then(json => dispatch(setUser(json)));
+  };
 }
 
 function followUser(userId){
