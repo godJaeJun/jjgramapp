@@ -48,9 +48,10 @@ const Notification = props => (
       </TouchableOpacity>
     ) : (
       <Image
-        source={{ uri: props.image.file }}
+        source={{ 
+          uri: `${API_URL}${props.image.file}`
+        }}
         style={styles.payload}
-        defaultSource={require("../../assets/images/photoPlaceholder.png")}
       />
     )}
   </View>
