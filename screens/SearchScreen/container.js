@@ -14,6 +14,9 @@ class Container extends Component{
         getEmptySearch:PropTypes.func.isRequired,
         searchHashtag:PropTypes.func.isRequired,
         search:PropTypes.array
+    };
+    static defaultProps= {
+        search:[]
     }
     state={
         searchingBy:"",
