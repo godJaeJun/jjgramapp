@@ -140,11 +140,11 @@ function uploadPhoto(file, caption, location, tags) {
     data.append("file", {
       uri: file,
       type: "image/jpeg",
-      name: `${uuidv1()}.jpg`//uuid는 랜덤한것 생성
+      name: `${uuidv1()}.jpg`
     });
     return (dispatch, getState) => {
-        const {user : {token}}=getState();
-      fetch(`${API_URL}/images/`, {
+      const { user: { token } } = getState();
+      return fetch(`${API_URL}/images/`, {
         method: "POST",
         headers: {
           Authorization: `JWT ${token}`,
@@ -155,6 +155,8 @@ function uploadPhoto(file, caption, location, tags) {
         if (response.status === 401) {
           dispatch(userActions.logOut());
         } else if (response.ok) {
+          dispatch(getFeed());
+          dispatch(userActions.getOwnProfile());
           return true;
         } else {
           return false;
