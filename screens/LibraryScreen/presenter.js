@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   pictureContainer: {
-    flex: 2
+    flex: 1
   },
   photos: {
     flex: 1

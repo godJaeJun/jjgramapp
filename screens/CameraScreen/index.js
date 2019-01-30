@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   camera: {
-    flex: 2,
+    flex: 3,
     alignItems: "flex-end",
     justifyContent: "space-between",
     flexDirection: "row"
